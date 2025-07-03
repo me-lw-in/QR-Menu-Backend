@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: QRMenu
+  datasource:
+    url: jdbc:mysql://localhost:3306/qrmenu_dev?createDatabaseIfNotExist=true
+    username: root
+    password: admin
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
