@@ -1,5 +1,6 @@
 package com.melwin.qrmenu.entity;
 
+import com.melwin.qrmenu.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private String role;
+    private Role role;
 
     @Column(name = "is_active")
     private Boolean isActive;
