@@ -32,13 +32,13 @@ public class User {
     @Column(name = "role")
     private Role role;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active", insertable = false)
     private Boolean isActive;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", insertable = false, updatable = false)
     private Instant updatedAt;
 
 }
