@@ -24,9 +24,6 @@ public class Restaurant {
     @Column(name = "type")
     private RestaurantType type;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
     @Lob
     @Column(name = "address")
     private String address;

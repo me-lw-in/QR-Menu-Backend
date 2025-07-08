@@ -4,6 +4,8 @@ import com.melwin.qrmenu.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
+
 import java.time.Instant;
 
 @Getter
@@ -47,4 +49,11 @@ public class User {
     @Column(name = "updated_at", insertable = false, updatable = false)
     private Instant updatedAt;
 
+    @OneToOne(mappedBy = "owner", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Restaurant restaurant;
+
+    public void addRestaurant(Restaurant restaurant) {
+        restaurant.setOwner(this);
+        this.restaurant = restaurant;
+    }
 }
