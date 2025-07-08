@@ -1,5 +1,6 @@
 package com.melwin.qrmenu.entity;
 
+import com.melwin.qrmenu.enums.RestaurantType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +20,9 @@ public class Restaurant {
     @Column(name = "name")
     private String name;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private String type;
+    private RestaurantType type;
 
     @Column(name = "phone_number")
     private String phoneNumber;
