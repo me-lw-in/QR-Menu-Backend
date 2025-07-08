@@ -32,6 +32,12 @@ public class User {
     @Column(name = "role")
     private Role role;
 
+    @Column(name = "otp")
+    private String otp;
+
+    @Column(name = "otp_generated_at")
+    private Instant otpGeneratedAt;
+
     @Column(name = "is_active", insertable = false)
     private Boolean isActive;
 
