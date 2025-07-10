@@ -1,7 +1,7 @@
 package com.melwin.qrmenu.service;
 
-import com.melwin.qrmenu.dto.ChangePasswordDto;
-import com.melwin.qrmenu.dto.ChangeUsernameDto;
+import com.melwin.qrmenu.dto.account.ChangePasswordDto;
+import com.melwin.qrmenu.dto.account.ChangeUsernameDto;
 import com.melwin.qrmenu.entity.Category;
 import com.melwin.qrmenu.entity.Item;
 import com.melwin.qrmenu.repository.CategoryRepository;

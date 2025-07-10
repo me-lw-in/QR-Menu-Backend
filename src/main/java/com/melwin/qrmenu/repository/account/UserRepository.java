@@ -1,6 +1,6 @@
 package com.melwin.qrmenu.repository;
 
-import com.melwin.qrmenu.dto.UserAndRestaurantProfileDto;
+import com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto;
 import com.melwin.qrmenu.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -19,7 +19,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query("select u from User u where u.phoneNumber = :phoneNumber")
     public User findUserByPhoneNumber(@Param("phoneNumber") String phoneNumber);
 
-    @Query("select new com.melwin.qrmenu.dto.UserAndRestaurantProfileDto(u.phoneNumber, u.name, u.email, r.name, r.address, r.type) from User u join u.restaurant r where u.phoneNumber = :phoneNumber ")
+    @Query("select new com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto(u.phoneNumber, u.name, u.email, r.name, r.address, r.type) from User u join u.restaurant r where u.phoneNumber = :phoneNumber ")
     public UserAndRestaurantProfileDto findUserProfile(@Param("phoneNumber") String phoneNumber);
 
 }

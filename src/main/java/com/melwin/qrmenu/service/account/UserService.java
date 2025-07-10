@@ -1,7 +1,7 @@
 package com.melwin.qrmenu.service;
 
-import com.melwin.qrmenu.dto.UserAndRestaurantCreateDto;
-import com.melwin.qrmenu.dto.UserAndRestaurantProfileDto;
+import com.melwin.qrmenu.dto.account.UserAndRestaurantCreateDto;
+import com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto;
 import com.melwin.qrmenu.entity.Restaurant;
 import com.melwin.qrmenu.entity.User;
 import com.melwin.qrmenu.repository.RestaurantRepository;
