@@ -1,4 +1,4 @@
-package com.melwin.qrmenu.dto;
+package com.melwin.qrmenu.dto.account;
 
 import com.melwin.qrmenu.enums.RestaurantType;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.melwin.qrmenu.repository;
+package com.melwin.qrmenu.repository.account;
 
 import com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto;
 import com.melwin.qrmenu.entity.User;
@@ -22,5 +22,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query("select new com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto(u.phoneNumber, u.name, u.email, r.name, r.address, r.type) from User u join u.restaurant r where u.phoneNumber = :phoneNumber ")
     public UserAndRestaurantProfileDto findUserProfile(@Param("phoneNumber") String phoneNumber);
 
+    public User findUserById(Long id);
 }
 

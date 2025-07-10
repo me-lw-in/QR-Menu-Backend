@@ -25,13 +25,13 @@ public class Item {
     @Column(name = "is_veg")
     private Boolean isVeg;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active", insertable = false)
     private Boolean isActive;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", insertable = false, updatable = false)
     private Instant updatedAt;
 
     @ManyToOne

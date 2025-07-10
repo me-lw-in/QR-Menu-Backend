@@ -29,10 +29,10 @@ public class Restaurantitem {
     @Column(name = "display_order")
     private Integer displayOrder;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", insertable = false, updatable = false)
     private Instant updatedAt;
 
     @ManyToOne

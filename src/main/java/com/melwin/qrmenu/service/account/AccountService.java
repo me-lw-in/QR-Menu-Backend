@@ -1,12 +1,12 @@
-package com.melwin.qrmenu.service;
+package com.melwin.qrmenu.service.account;
 
 import com.melwin.qrmenu.dto.account.ChangePasswordDto;
 import com.melwin.qrmenu.dto.account.ChangeUsernameDto;
 import com.melwin.qrmenu.entity.Category;
 import com.melwin.qrmenu.entity.Item;
-import com.melwin.qrmenu.repository.CategoryRepository;
-import com.melwin.qrmenu.repository.ItemRepository;
-import com.melwin.qrmenu.repository.UserRepository;
+import com.melwin.qrmenu.repository.menu.CategoryRepository;
+import com.melwin.qrmenu.repository.menu.ItemRepository;
+import com.melwin.qrmenu.repository.account.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

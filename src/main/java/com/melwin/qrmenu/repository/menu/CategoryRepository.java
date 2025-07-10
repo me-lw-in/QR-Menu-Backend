@@ -1,4 +1,4 @@
-package com.melwin.qrmenu.repository;
+package com.melwin.qrmenu.repository.menu;
 
 import com.melwin.qrmenu.entity.Category;
 import org.springframework.data.jpa.repository.Query;

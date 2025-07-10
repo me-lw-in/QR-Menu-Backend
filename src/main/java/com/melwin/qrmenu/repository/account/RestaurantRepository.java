@@ -1,4 +1,4 @@
-package com.melwin.qrmenu.repository;
+package com.melwin.qrmenu.repository.account;
 
 import com.melwin.qrmenu.entity.Restaurant;
 import org.springframework.data.jpa.repository.Query;

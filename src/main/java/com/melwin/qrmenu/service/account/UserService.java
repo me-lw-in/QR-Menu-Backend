@@ -1,11 +1,11 @@
-package com.melwin.qrmenu.service;
+package com.melwin.qrmenu.service.account;
 
 import com.melwin.qrmenu.dto.account.UserAndRestaurantCreateDto;
 import com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto;
 import com.melwin.qrmenu.entity.Restaurant;
 import com.melwin.qrmenu.entity.User;
-import com.melwin.qrmenu.repository.RestaurantRepository;
-import com.melwin.qrmenu.repository.UserRepository;
+import com.melwin.qrmenu.repository.account.RestaurantRepository;
+import com.melwin.qrmenu.repository.account.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
