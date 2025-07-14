@@ -28,16 +28,16 @@ public class Restaurant {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "is_active")
-    private Boolean isActive;
-
     @Column(name = "is_open")
     private Boolean isOpen;
 
-    @Column(name = "created_at")
+    @Column(name = "is_active", insertable = false)
+    private Boolean isActive;
+
+    @Column(name = "created_at", insertable = false, updatable = false)
     private Instant createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", insertable = false, updatable = false)
     private Instant updatedAt;
 
     @OneToOne
