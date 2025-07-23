@@ -10,4 +10,6 @@ import java.util.List;
 public interface ItemRepository extends CrudRepository<Item, Long> {
   @Query("select i from Item i where i.createdBy.id = :userId and i.isDefault = false")
   public List<Item> findItemsByUserId(@Param("userId") Long userId);
+
+  public Item findItemByName(@Param("name") String name);
 }

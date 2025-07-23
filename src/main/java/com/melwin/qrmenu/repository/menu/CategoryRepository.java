@@ -11,4 +11,8 @@ public interface CategoryRepository extends CrudRepository<Category, Long> {
 
     @Query("select c from Category c where c.createdBy.id = :userId and c.isDefault = false")
     public List<Category> findCategoryByUserId(@Param("userId") Long userId);
+
+
+    @Query("select c from Category c where c.name = :name")
+    public Category findCategoryByName(@Param("name") String name);
 }
