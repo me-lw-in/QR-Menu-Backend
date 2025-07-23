@@ -40,6 +40,7 @@ public class UserService {
         restaurant.setName(userAndRestaurantCreateDto.getRestaurantName().trim());
         restaurant.setAddress(userAndRestaurantCreateDto.getRestaurantAddress().trim());
         restaurant.setType(userAndRestaurantCreateDto.getType());
+        restaurant.setIsOpen(true);
 
         user.addRestaurant(restaurant);
 
