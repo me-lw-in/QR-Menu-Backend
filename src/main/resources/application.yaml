@@ -9,3 +9,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+  jwt:
+    secret: ${JWT_SECRET}
+twilio:
+  sid: ${TWILIO_ACCOUNT_SID}
+  token: ${TWILIO_AUTH_TOKEN}

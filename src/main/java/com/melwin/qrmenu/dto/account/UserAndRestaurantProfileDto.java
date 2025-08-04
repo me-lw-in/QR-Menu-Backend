@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class UserAndRestaurantProfileDto {
+    private Long id;
     private String phoneNumber;
     private String name;
     private String email;
