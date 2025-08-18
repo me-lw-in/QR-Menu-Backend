@@ -11,6 +11,7 @@ public class UserAndRestaurantProfileDto {
     private String phoneNumber;
     private String name;
     private String email;
+    private Long restaurantId;
     private String restaurantName;
     private String restaurantAddress;
     private RestaurantType type;

@@ -26,7 +26,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
     public Optional<User> findUserByPhoneNumber(@Param("phoneNumber") String phoneNumber);
 
 
-    @Query("select new com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto(u.id, u.phoneNumber, u.name, u.email, r.name, r.address, r.type) from User u join u.restaurant r where u.phoneNumber = :phoneNumber ")
+    @Query("select new com.melwin.qrmenu.dto.account.UserAndRestaurantProfileDto(u.id, u.phoneNumber, u.name, u.email,r.id, r.name, r.address, r.type) from User u join u.restaurant r where u.phoneNumber = :phoneNumber ")
     public UserAndRestaurantProfileDto findUserProfile(@Param("phoneNumber") String phoneNumber);
 
     public User findUserById(Long id);
