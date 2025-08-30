@@ -8,6 +8,8 @@ import com.melwin.qrmenu.repository.menu.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class CategoryService {
@@ -15,7 +17,7 @@ public class CategoryService {
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
 
-    public Category createCategory(CategoryBlockDto category, Long ownerId) {
+    public Optional<Category> createCategory(CategoryBlockDto category, Long ownerId) {
         var newCategoryEntity = new Category();
         newCategoryEntity.setName(category.getCategoryName().trim());
 
@@ -26,6 +28,6 @@ public class CategoryService {
         newCategoryEntity.setDisplayOrder(category.getDisplayOrder());
 
         categoryRepository.save(newCategoryEntity);
-        return newCategoryEntity;
+        return Optional.of(newCategoryEntity);
     }
 }

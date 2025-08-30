@@ -8,6 +8,8 @@ import com.melwin.qrmenu.repository.menu.ItemRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 @Service
 public class ItemService {
@@ -15,7 +17,7 @@ public class ItemService {
     private final ItemRepository itemRepository;
     private final UserRepository userRepository;
 
-    public Item createItem(ItemBlockDto item, Long ownerId) {
+    public Optional<Item> createItem(ItemBlockDto item, Long ownerId) {
         Item newItemEntity = new Item();
         newItemEntity.setName(item.getName().trim());
         System.out.println("Item name is inside createItem: " + item.getName().trim());
@@ -26,6 +28,6 @@ public class ItemService {
         newItemEntity.setIsVeg(item.getIsVeg());
 
         itemRepository.save(newItemEntity);
-        return newItemEntity;
+        return Optional.of(newItemEntity);
     }
 }

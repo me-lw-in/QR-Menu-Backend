@@ -16,10 +16,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @AllArgsConstructor
 @Service
@@ -39,34 +36,35 @@ public class MenuService {
 
         List<CategoryBlockDto> categories = menuDto.getCategories();
         for (CategoryBlockDto categoryBlockDto : categories) {
-            Category category;
-            if (categoryBlockDto.getIsNew())
-                category = categoryService.createCategory(categoryBlockDto, ownerId);
-            else
-                category = categoryRepository.findCategoryByName(categoryBlockDto.getCategoryName().trim());
+            Optional<Category> categoryObj = categoryRepository.findCategoryByNameAndUser(categoryBlockDto.getCategoryName(), ownerId);
+
+            if (categoryObj.isEmpty())
+                categoryObj = categoryService.createCategory(categoryBlockDto, ownerId);
 
             for (ItemBlockDto itemBlockDto : categoryBlockDto.getItems()) {
-                Item item;
-                if (itemBlockDto.getIsNew()) {
+
+                Optional<Item> item = itemRepository.findItemByNameAndCreatedBy(itemBlockDto.getName(), ownerId);
+                if (item.isEmpty()) {
                     System.out.println("New!");
                     item = itemService.createItem(itemBlockDto, ownerId);
+                    System.out.println("Existing item: " + item.get().getName());
+                    System.out.println("Item created!");
+                    restaurantItemService.linkItem(ownerId, categoryObj.get(), item.get(), itemBlockDto);
+                    System.out.println("Restaurant Item Assigned!");
                 }
-                else
-                {System.out.println("Existing");
-                    item = itemRepository.findItemByName(itemBlockDto.getName().trim());
-                    }
-                System.out.println("Existing item: " + item.getName());
-                System.out.println("Item created!");
-                restaurantItemService.linkItem(ownerId,category,item,itemBlockDto);
-                System.out.println("Restaurant Item Assigned!");
             }
             System.out.println("Category created!");
         }
     }
 
-    public void getMenu(Long restaurantId) {
+    public MenuResponseDto getMenu(Long restaurantId) {
 
         List<FlatMenuRowDto> flatMenu = restaurantItemRepository.findMenyByRestaurantId(restaurantId);
+
+        if (flatMenu.isEmpty()){
+            return null;
+        }
+
         Map<Long, CategoryResponseDto> categoryMap = new LinkedHashMap<>();
 
         for (FlatMenuRowDto flatMenuRowDto : flatMenu) {
@@ -106,5 +104,6 @@ public class MenuService {
         );
 
         System.out.println("Menu ResponseDto: " + menuResponseDto);
+        return menuResponseDto;
     }
 }
