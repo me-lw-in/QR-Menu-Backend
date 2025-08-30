@@ -34,7 +34,7 @@ public class GeminiService {
               "categoryName": "string",
               "items": [
                 {
-                  "name": "string",
+                  "itemName": "string",
                   "price": number,
                   "isVeg": true/false
                 }

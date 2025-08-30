@@ -80,7 +80,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,"/api/account/register").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST,"/api/auth/validate").authenticated()
-                        .requestMatchers(HttpMethod.POST,"/api/menu/generate-menu").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/api/menu/generate-menu").authenticated()
+                        .requestMatchers(HttpMethod.POST,"/api/menu/create-menu").authenticated()
+                        .requestMatchers(HttpMethod.GET,"/api/menu/my-menu/*").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/account/*").authenticated())
                 .addFilterAfter(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
