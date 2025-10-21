@@ -52,9 +52,14 @@ public class AccountController {
         var uri = uriBuilder.path("/api/account/{phoneNumber}")
                 .buildAndExpand(userData.getPhoneNumber())
                 .toUri();
-        var token = jwtService.generateToken(userData.getPhoneNumber());
+        var generatedToken = jwtService.generateToken(userData.getPhoneNumber());
+        var restoProfile = userService.fetchProfile(userData.getPhoneNumber());
+        var responseBody =  new Object(){
+            public final String token = generatedToken;
+            public final UserAndRestaurantProfileDto profile = restoProfile;
+        };
 
-        return ResponseEntity.created(uri).body(new JwtResponse(token));
+        return ResponseEntity.created(uri).body(responseBody);
     }
 
     @PostMapping("/phone-otp/request")

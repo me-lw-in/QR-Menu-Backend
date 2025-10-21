@@ -53,7 +53,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // Allow requests from your React development server
-        configuration.setAllowedOrigins(Collections.singletonList("http://localhost:5173"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://192.168.0.105:5173"));
         // Allow all common HTTP methods
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         // Allow all headers, which is important for sending the JWT token
@@ -82,6 +82,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST,"/api/auth/validate").authenticated()
                         .requestMatchers(HttpMethod.POST,"/api/menu/generate-menu").authenticated()
                         .requestMatchers(HttpMethod.POST,"/api/menu/create-menu").authenticated()
+                        .requestMatchers(HttpMethod.GET,"/api/qrcode/generate/*").authenticated()
                         .requestMatchers(HttpMethod.GET,"/api/menu/my-menu/*").permitAll()
                         .requestMatchers(HttpMethod.GET,"/api/account/*").authenticated())
                 .addFilterAfter(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
